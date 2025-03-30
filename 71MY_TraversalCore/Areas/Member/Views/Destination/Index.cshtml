@@ -1,0 +1,60 @@
+﻿@using EntityLayer.Concrete
+@model List<Destination>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_MemberLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card mb-4">
+            <div class="card-header pb-0">
+                <h6>Rotalar</h6>
+            </div>
+            <div class="card-body px-0 pt-0 pb-2">
+                <div class="table-responsive p-0">
+                    <table class="table align-items-center mb-0">
+                        <thead>
+                            <tr>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">#</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">ŞEHİR</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">SÜRE</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">KAPASİTE</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">FİYAT</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">DETAYLAR</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        <p class="font-weight-bold text-xs mb-0">@item.DestinationId</p>
+                                    </td>
+
+                                    <td>
+                                        <p class="font-weight-bold text-xs mb-0">@item.City</p>
+                                    </td>
+                                    <td>
+                                        <p class="font-weight-bold text-xs mb-0">@item.DayNight</p>
+                                    </td>
+                                    <td>
+                                        <p class="font-weight-bold text-xs mb-0">@item.Capacity</p>
+                                    </td>
+                                    <td>
+                                        <p class="font-weight-bold text-xs mb-0">@item.Price</p>
+                                    </td>
+                                    <td>
+                                        <a href="/Destination/DestinationDetails/@item.DestinationId" class="btn btn-outline-info text-capitalize text-s mb-0">
+                                            Detaylar
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

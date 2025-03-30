@@ -1,0 +1,49 @@
+﻿@model _71MY_TraversalCore.Areas.Member.Models.MemberProfileViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_MemberLayout.cshtml";
+}
+<div class="row">
+    <div class="col-12">
+        <div class="card mb-4">
+            <div class="card-header pb-0">
+                <h6>Profil Düzenleme</h6>
+            </div>
+            <div class="card-body">
+                <form method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label>Adınız</label>
+                        <input type="text" class="form-control" asp-for="Name">
+                    </div>
+                    <div class="mb-3">
+                        <label>Soyadınız</label>
+                        <input type="text" class="form-control" asp-for="Surname">
+                    </div>
+                    <div class="mb-3">
+                        <label>Mail Adresiniz</label>
+                        <input type="text" class="form-control" asp-for="Email">
+                    </div>
+                    <div class="mb-3">
+                        <label>Telefon Numaranız</label>
+                        <input type="text" class="form-control" asp-for="PhoneNumber">
+                    </div>
+                    <div class="mb-3">
+                        <label>Resim Seçin</label>
+                        <input type="file" class="form-control" asp-for="Image">
+                    </div>
+                    <div class="mb-3">
+                        <label>Şifreniz</label>
+                        <input type="password" class="form-control" asp-for="Password">
+                    </div>  
+                    <div class="mb-3">
+                        <label>Şifreniz Tekrar</label>
+                        <input type="password" class="form-control" asp-for="ConfirmPassword">
+                    </div>
+                    <div>
+                        <button class="btn bg-gradient-info">Kaydet</button>
+                    </div>                   
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

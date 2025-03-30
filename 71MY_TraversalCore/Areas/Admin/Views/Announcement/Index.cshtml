@@ -1,0 +1,40 @@
+﻿@model List<DTOLayer.DTOs.AnnouncementDTOs.AnnouncementListDTO>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"><a href="/Admin/Dashboard/Index">Dashboard</a></span>/ Duyurular</h4>
+    <div class="card">
+        <h5 class="card-header">Duyurular</h5>
+        <div class="table-responsive text-nowrap">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>BAŞLIK</th>
+                        <th>İÇERİK</th>
+                        <th>SİL</th>
+                        <th>GÜNCELLE</th>
+                        <th>DETAYLAR</th>                        
+                    </tr>
+                </thead>
+                <tbody class="table-border-bottom-0">
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.AnnouncementId</td>
+                            <td>@item.Title</td>
+                            <td>@item.Content</td>
+                            <td><a href="/Admin/Announcement/DeleteAnnouncement/@item.AnnouncementId" class="btn btn-outline-danger">Sil</a></td>
+                            <td><a href="/Admin/Announcement/UpdateAnnouncement/@item.AnnouncementId" class="btn btn-outline-warning">Güncelle</a></td>
+                            <td><a href="#" class="btn btn-outline-info">Detaylar</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>    
+            <br />
+            <a href="/Admin/Announcement/AddAnnouncement" class="btn btn-primary">Yeni Duyuru Ekle</a>
+        </div>
+    </div>
+</div>

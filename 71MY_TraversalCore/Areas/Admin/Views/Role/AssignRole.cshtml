@@ -1,0 +1,29 @@
+﻿@model List<RoleAssignViewModel>
+@{
+    ViewData["Title"] = "AssignRole";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"><a href="/Admin/Role/Index">Rol Listesi</a></span>/ Rol Atama Sayfası</h4>
+    <div class="col-md-12">
+        <div class="card mb-4">
+            <h5 class="card-header">Rol Ata</h5>
+            <div class="card-body">
+                <form method="post">
+                    @for(int i = 0; i < Model.Count; i++)
+                    {
+                        <input type="hidden" asp-for="@Model[i].RoleId" />
+                        <input type="hidden" asp-for="@Model[i].RoleName" />
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" asp-for="@Model[i].RoleExist" />
+                            <label class="form-check-label" for="@Model[i].RoleExist"> @Model[i].RoleName </label>
+                        </div>
+                        <br />
+                    }                    
+                    
+                    <button class="btn btn-primary">Değişiklikleri Kaydet</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

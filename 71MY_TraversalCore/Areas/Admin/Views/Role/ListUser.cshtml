@@ -1,0 +1,36 @@
+﻿@model List<AppUser>
+@{
+    ViewData["Title"] = "ListUser";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"><a href="/Admin/Dashboard/Index">Dashboard</a></span>/ Kullanıcılar Listesi</h4>
+    <div class="card">
+        <h5 class="card-header">Kullanıcılar</h5>
+        <div class="table-responsive text-nowrap">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>KULLANICI ADI</th>
+                        <th>ADI</th>
+                        <th>SOYADI</th>
+                        <th>ROL ATA</th>
+                    </tr>
+                </thead>
+                <tbody class="table-border-bottom-0">
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Id</td>
+                            <td>@item.UserName</td>
+                            <td>@item.Name</td>
+                            <td>@item.Surname</td>
+                            <td><a href="/Admin/Role/AssignRole/@item.Id" class="btn btn-outline-info">Rol Ata</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

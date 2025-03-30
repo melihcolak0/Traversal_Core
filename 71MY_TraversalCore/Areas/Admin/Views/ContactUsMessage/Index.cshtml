@@ -1,0 +1,39 @@
+﻿@using EntityLayer.Concrete
+@model List<ContactUsMessage>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"><a href="/Admin/Dashboard/Index">Dashboard</a></span>/ Bize Ulaşın Mesajları</h4>
+    <div class="card">
+        <h5 class="card-header">Bize Ulaşın Mesajları</h5>
+        <div class="table-responsive text-nowrap">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>GÖNDEREN</th>
+                        <th>KONU</th>
+                        <th>TARİH</th>                        
+                        <th>SİL</th>
+                        <th>MESAJI GÖR</th>
+                    </tr>
+                </thead>
+                <tbody class="table-border-bottom-0">
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.ContactUsMessageId</td>
+                            <td>@item.Name</td>
+                            <td>@item.Subject</td>
+                            <td>@item.MessageDate.ToString("dd MMM yyyy - HH:mm")</td>
+                            <td><a href="/Admin/ContactUsMessage/PassiveContactUsMessage/@item.ContactUsMessageId" class="btn btn-outline-danger">Sil</a></td>
+                            <td><a href="#" class="btn btn-outline-primary">Mesajı Gör</a></td>                                                        
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

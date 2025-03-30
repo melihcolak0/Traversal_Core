@@ -1,0 +1,53 @@
+﻿@model EntityLayer.Concrete.Guide
+@{
+    ViewData["Title"] = "UpdateGuide";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"><a href="/Admin/Destination/Index">Dashboard</a></span>/ Rehber Güncelleme Sayfası</h4>
+    <div class="col-md-12">
+        <div class="card mb-4">
+            <h5 class="card-header">Rehber Güncelle</h5>
+            <div class="card-body">
+                <form method="post">
+                    <div>
+                        <label class="form-label">Id</label>
+                        <input type="text" class="form-control" asp-for="GuideId" readonly />
+                    </div>
+                    <br />
+                    <div>
+                        <label class="form-label">ADI VE SOYADI</label>
+                        <input type="text" class="form-control" asp-for="Name" />
+                        <span asp-validation-for="Name" style="color: red"></span>
+                    </div>
+                    <br />
+                    <div>
+                        <label class="form-label">AÇIKLAMA</label>
+                        <input type="text" class="form-control" asp-for="Description" />
+                        <span asp-validation-for="Description" style="color: red"></span>
+                    </div>
+                    <br />
+                    <div>
+                        <label class="form-label">GÖRSEL URL</label>
+                        <input type="text" class="form-control" asp-for="Image" />
+                        <span asp-validation-for="Image" style="color: red"></span>
+                    </div>
+                    <br />
+                    <div>
+                        <label class="form-label">TWITTER URL</label>
+                        <input type="text" class="form-control" asp-for="TwitterUrl" />
+                        <span asp-validation-for="TwitterUrl" style="color: red"></span>
+                    </div>
+                    <br />
+                    <div>
+                        <label class="form-label">INSTAGRAM URL</label>
+                        <input type="text" class="form-control" asp-for="InstagramUrl" />
+                        <span asp-validation-for="InstagramUrl" style="color: red"></span>
+                    </div>
+                    <br />
+                    <button class="btn btn-primary">Güncelle</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

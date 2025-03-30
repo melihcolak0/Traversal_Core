@@ -1,0 +1,33 @@
+﻿@model AccountViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"><a href="/Admin/Dashboard/Index">Dashboard</a></span>/ Unit Of Work ile Personel Para Transferi</h4>
+    <div class="col-md-12">
+        <div class="card mb-4">
+            <h5 class="card-header">Para Transferi</h5>
+            <div class="card-body">
+                <form method="post">
+                    <div>
+                        <label class="form-label">GÖNDEREN</label>
+                        <input type="text" class="form-control" asp-for="SenderId" />
+                    </div>
+                    <br />
+                    <div>
+                        <label class="form-label">ALICI</label>
+                        <input type="text" class="form-control" asp-for="ReceiverId" />
+                    </div>
+                    <br />
+                    <div>
+                        <label class="form-label">MİKTAR</label>
+                        <input type="text" class="form-control" asp-for="Amount" />
+                    </div>
+                    <br />                    
+                    <button class="btn btn-primary">Hesaba Aktar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

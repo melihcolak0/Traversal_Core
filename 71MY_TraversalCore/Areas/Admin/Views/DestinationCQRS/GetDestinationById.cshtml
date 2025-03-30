@@ -1,0 +1,38 @@
+﻿@model _71MY_TraversalCore.CQRS.Results.DestinationResults.GetDestinationByIdQueryResult
+@{
+    ViewData["Title"] = "GetDestinationById";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"><a href="/Admin/Destination/Index">Tur Rotaları</a></span>/ Rota Düzenleme Sayfası</h4>
+    <div class="col-md-12">
+        <div class="card mb-4">
+            <h5 class="card-header">Rota Düzenleme</h5>
+            <div class="card-body">
+                <form method="post">
+                    <div>
+                        <label class="form-label">ID</label>
+                        <input type="text" class="form-control" asp-for="DestinationId" readonly />
+                    </div>
+                    <br />
+                    <div>
+                        <label class="form-label">ŞEHİR</label>
+                        <input type="text" class="form-control" asp-for="City" />
+                    </div>
+                    <br />
+                    <div>
+                        <label class="form-label">GÜN GECE</label>
+                        <input type="text" class="form-control" asp-for="DayNight" />
+                    </div>
+                    <br />
+                    <div>
+                        <label class="form-label">FİYAT</label>
+                        <input type="text" class="form-control" asp-for="Price" />
+                    </div>
+                    <br />
+                    <button class="btn btn-primary">Güncelle</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

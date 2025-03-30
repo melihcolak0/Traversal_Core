@@ -1,0 +1,36 @@
+﻿@model _71MY_TraversalCore.CQRS.Commands.GuideCommands.AddGuideCommand
+@{
+    ViewData["Title"] = "AddGuide";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"><a href="/Admin/Destination/Index">Dashboard</a></span>/ Yeni Rehber Ekleme Sayfası</h4>
+    <div class="col-md-12">
+        <div class="card mb-4">
+            <h5 class="card-header">Yeni Rehber Ekle</h5>
+            <div class="card-body">
+                <form method="post">
+                    <div>
+                        <label class="form-label">ADI VE SOYADI</label>
+                        <input type="text" class="form-control" asp-for="Name" />
+                        <span asp-validation-for="Name" style="color: red"></span>
+                    </div>
+                    <br />
+                    <div>
+                        <label class="form-label">AÇIKLAMA</label>
+                        <input type="text" class="form-control" asp-for="Description" />
+                        <span asp-validation-for="Description" style="color: red"></span>
+                    </div>
+                    <br />
+                    <div>
+                        <label class="form-label">GÖRSEL URL</label>
+                        <input type="text" class="form-control" asp-for="Image" />
+                        <span asp-validation-for="Image" style="color: red"></span>
+                    </div>
+                    <br />
+                    <button class="btn btn-primary">Oluştur</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

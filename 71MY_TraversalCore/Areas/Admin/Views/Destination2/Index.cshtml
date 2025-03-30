@@ -1,0 +1,194 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"><a href="/Admin/Dashboard/Index">Dashboard</a></span>/ Destinasyon İşlemleri 2</h4>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <h5 class="card-header">Destinasyon Listeleme</h5>
+                <div class="table-responsive text-nowrap">
+                    <div id="cityList">
+                    </div>
+                    <br />
+                    <button type="button" id="btnGetListSt" class="btn btn-primary">Statik Şehir Listele</button>
+                    <button type="button" id="btnGetListDy" class="btn btn-info">Dinamik Destinasyon Listele</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <h5 class="card-header">Yeni Destinasyon Ekleme</h5>
+                <div class="card-body">
+                    <input type="text" id="txtAddCity" placeholder="Şehir Adı" class="form-control" />
+                    <br />
+                    <input type="text" id="txtAddDayNight" placeholder="Gün/Gece" class="form-control" />
+                    <br />
+                    <input type="text" id="txtAddPrice" placeholder="Fiyat" class="form-control" />
+                    <br />
+                    <input type="text" id="txtAddCapacity" placeholder="Kapasite" class="form-control" />
+                    <br />
+                    <button type="button" id="btnAddDest" class="btn btn-success">Dinamik Yeni Destinasyon Ekle</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-6">
+            <div class="card">
+                <h5 class="card-header">Id'ye Göre Destinasyon Getirme</h5>
+                <div class="card-body">
+                    <input type="text" id="txtGetDestById" placeholder="Destinasyon Id" class="form-control" />
+                    <br />
+                    <button type="button" id="btnGetDestById" class="btn btn-warning">Dinamik Id'ye Göre Destinasyon Getir</button>
+                </div>
+                <h5 class="card-header">Destinasyon Güncelleme</h5>
+                <div class="card-body">
+                    <input type="text" id="txtUpdateCity" placeholder="Şehir Adı" class="form-control" />
+                    <br />
+                    <input type="text" id="txtUpdateDayNight" placeholder="Gün/Gece" class="form-control" />
+                    <br />
+                    <input type="text" id="txtUpdatePrice" placeholder="Fiyat" class="form-control" />
+                    <br />
+                    <input type="text" id="txtUpdateCapacity" placeholder="Kapasite" class="form-control" />
+                    <br />
+                    <button type="button" id="btnUpdDest" class="btn btn-warning">Dinamik Destinasyon Güncelle</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="card">
+                <h5 class="card-header">Destinasyon Silme</h5>
+                <div class="card-body">
+                    <input type="text" id="txtDeleteDestination" placeholder="Destinasyon Id" class="form-control" />
+                    <br />
+                    <button type="button" id="btnDeleteDest" class="btn btn-danger">Dinamik Destinasyon Sil</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $("#btnGetListSt").click(function(){
+        $.ajax({
+            contentType: "application/json",
+            dataType: "json",
+            type: "GET",
+            url: "/Admin/Destination2/ListDestinationsStatic/",
+            success: function(func){
+                let w = jQuery.parseJSON(func);
+                console.log(w);
+                let tablehtml = "<table class=table table-bordered> <tr> <th> Şehir Id </th> <th> Şehir Adı </th> <th> Ülke Adı </th> </tr>";
+                $.each(w, (index, value) => {
+                    tablehtml += `<tr><td>${value.CityId}</td> <td>${value.CityName}</td> <td>${value.CityCountry}</td> </tr>`
+                });
+                tablehtml += "</table>";
+                $("#cityList").html(tablehtml);
+            }
+
+        })
+    })
+
+    $("#btnGetListDy").click(function(){
+        $.ajax({
+            contentType: "application/json",
+            dataType: "json",
+            type: "GET",
+            url: "/Admin/Destination2/ListDestinationsDynamic/",
+            success: function(func2){
+                let w = jQuery.parseJSON(func2);
+                console.log(w);
+                let tablehtml = "<table class=table table-bordered> <tr> <th> Şehir </th> <th> Gün/Gece Adı </th> <th> Fiyat </th> </tr>";
+                $.each(w, (index, value) => {
+                    tablehtml += `<tr><td>${value.City}</td> <td>${value.DayNight}</td> <td>$${value.Price}</td> </tr>`
+                });
+                tablehtml += "</table>";
+                $("#cityList").html(tablehtml);
+            }
+
+        })
+    })
+
+    $("#btnAddDest").click(function(){
+
+        let destValues = {
+            City: $("#txtAddCity").val(),
+            DayNight: $("#txtAddDayNight").val(),
+            Price: $("#txtAddPrice").val(),
+            Capacity: $("#txtAddCapacity").val()
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "/Admin/Destination2/AddDestinationDynamic/",
+            data: destValues,
+            success: function (func3){
+                let result = jQuery.parseJSON(func3);
+                alert("Şehir-Rota başarılı bir şekilde eklendi!");
+            }
+        });
+    });
+
+    $("#btnGetDestById").click(x => {
+        let id = $("#txtGetDestById").val();
+
+        $.ajax({
+            contentType: "application/json",
+            dataType: "json",
+            type: "GET",
+            url: "/Admin/Destination2/GetDestinationByIdDynamic/",
+            data: {DestinationId: id},
+            success: function(func4){
+                let result = jQuery.parseJSON(func4);
+               
+                $("#txtUpdateCity").val(result.City);
+                $("#txtUpdateDayNight").val(result.DayNight);
+                $("#txtUpdatePrice").val(result.Price);
+                $("#txtUpdateCapacity").val(result.Capacity);
+            }
+        });
+    });
+
+    $("#btnUpdDest").click(function(){
+        let values = {
+            DestinationId: $("#txtGetDestById").val(),
+            City: $("#txtUpdateCity").val(),
+            DayNight: $("#txtUpdateDayNight").val(),
+            Price: $("#txtUpdatePrice").val(),
+            Capacity: $("#txtUpdateCapacity").val()
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "/Admin/Destination2/UpdateDestinationDynamic/",
+            data: values,
+            success: function(func5){
+                alert("Güncelleme işlemi başarılı!");
+            }
+        });
+    });
+
+    $("#btnDeleteDest").click(x => {
+        let id = $("#txtDeleteDestination").val();
+
+        $.ajax({
+            url: "/Admin/Destination2/DeleteDestinationDynamic/" + id,
+            type: "POST",
+            contentType: "application/json",
+            dataType: "json",
+            success: function(func6){
+                alert("Destinasyon başarılı bir şekilde silindi!");
+            }
+        });
+    });
+
+</script>

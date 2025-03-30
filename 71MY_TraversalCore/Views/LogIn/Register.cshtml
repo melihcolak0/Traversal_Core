@@ -1,0 +1,108 @@
+﻿@model _71MY_TraversalCore.Models.UserRegisterViewModel
+@{
+    Layout = null;
+}
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+	<title>ASP.NET Core 5.0 Kayıt Ol Sayfası</title>
+	<!-- Meta tag Keywords -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8" />
+	<meta name="keywords"
+		  content="Invent Signup Form Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<!-- //Meta tag Keywords -->
+	<!--/Style-CSS -->
+	<link rel="stylesheet" href="/web/css/style.css" type="text/css" media="all" />
+	<!--//Style-CSS -->
+</head>
+
+<body>	
+	<section class="w3l-login-6">
+		<div class="login-hny">
+			<div class="form-content">
+				<div class="form-right">
+					<div class="overlay">
+						<div class="grid-info-form">
+							<h5>Traversal Kayıt Olma Sayfası</h5>
+							<h3>Bir Hesap Oluştur </h3>
+							<p>
+								Birbirinden deneyimli rehberlerimiz eşliğinde İskandinav ülkelerinin soğuğunu, Akdeniz ülkelerinin sıcaklığını, güzel ülkemizin Kapadokya'dan Sürmene'ye, Ölüdeniz'den Asos'a, Balkan Turundan Mısır çöllerine kadar aklınıza gelen her yere bir tık uzaktayız. Seyahatlerimize katılmak için hemen kayıt olun...
+							</p>
+							<a href="/LogIn/LogIn" class="read-more-1 btn">HADİ BAŞLAYALIM</a>
+						</div>
+					</div>
+				</div>
+				<div class="form-left">
+					<div class="middle">
+						<h4>Bize Katılın</h4>
+						<p>Hemen Ücretsiz Olarak Bir Hesap Oluştur</p>
+					</div>
+					<form method="post" class="signin-form">
+						<div class="form-input">
+							<label>Adınız</label>
+							<input type="text" asp-for="Name"/>							
+							<span style="color: red;font-weight: bold;" asp-validation-for="Name"></span>
+						</div>
+						<div class="form-input">
+							<label>Soyadınız</label>
+							<input type="text" asp-for="Surname"/>
+							<span style="color: red;font-weight: bold;" asp-validation-for="Surname"></span>
+						</div>
+						<div class="form-input">
+							<label>Kullanıcı Adınız</label>
+							<input type="text" asp-for="UserName"/>
+							<span style="color: red;font-weight: bold;" asp-validation-for="UserName"></span>
+						</div>
+						<div class="form-input">
+							<label>E-Mail</label>
+							<input type="email" asp-for="Email"/>
+							<span style="color: red;font-weight: bold;" asp-validation-for="Email"></span>
+						</div>
+						<div class="form-input">
+							<label>Şifreniz</label>
+							<input type="password" asp-for="Password"/>
+							<span style="color: red;font-weight: bold;" asp-validation-for="Password"></span>
+						</div>
+						<div class="form-input">
+							<label>Şifreniz Tekrar</label>
+							<input type="password" asp-for="ConfirmPassword"/>
+							<span style="color: red;font-weight: bold;" asp-validation-for="ConfirmPassword"></span>
+						</div>
+						<div style="color: red;font-weight: bold;" asp-validation-summary="ModelOnly">
+
+						</div>
+						<label class="container">
+							<a href="#">Katılım koşullarını</a> ve <a href="#">Gizlilik Sözleşmesini</a> kabul ediyorum.
+							<input type="checkbox">
+							<span class="checkmark"></span>
+						</label>
+						<button class="btn">Kayıt Ol</button>
+					</form>
+					<div class="copy-right text-center">
+						<p>
+							© @DateTime.Now.Year. Tüm hakları saklıdır. 
+							<a href="http://w3layouts.com/" target="_blank">W3layouts</a> tarafından tasarlandı.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>	
+</body>
+
+</html>

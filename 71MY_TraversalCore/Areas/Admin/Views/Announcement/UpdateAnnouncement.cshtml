@@ -1,0 +1,33 @@
+﻿@model UpdateAnnouncementDTO
+@{
+    ViewData["Title"] = "UpdateAnnouncement";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"><a href="/Admin/Announcement/Index">Duyurular</a></span>/ Duyuru Düzenleme Sayfası</h4>
+    <div class="col-md-12">
+        <div class="card mb-4">
+            <h5 class="card-header">Duyuru Düzenleme</h5>
+            <div class="card-body">
+                <form method="post">
+                    <div>
+                        <label class="form-label">ID</label>
+                        <input type="text" class="form-control" asp-for="AnnouncementId" readonly />
+                    </div>
+                    <br />
+                    <div>
+                        <label class="form-label">BAŞLIK</label>
+                        <input type="text" class="form-control" asp-for="Title" />
+                    </div>
+                    <br />
+                    <div>
+                        <label class="form-label">İÇERİK</label>
+                        <input type="text" class="form-control" asp-for="Content" />
+                    </div>
+                    <br />                    
+                    <button class="btn btn-primary">Güncelle</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

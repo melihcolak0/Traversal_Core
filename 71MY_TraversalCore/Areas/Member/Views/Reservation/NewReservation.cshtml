@@ -1,0 +1,37 @@
+﻿@model EntityLayer.Concrete.Reservation
+@{
+    ViewData["Title"] = "NewReservation";
+    Layout = "~/Views/Shared/_MemberLayout.cshtml";
+}
+<div class="row">
+    <div class="col-12">
+        <div class="card mb-4">
+            <div class="card-header pb-0">
+                <h6>Rezervasyon Oluşturma</h6>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    <div class="mb-3">
+                        <label>Lokasyon</label>
+                        @Html.DropDownListFor(x => x.DestinationId, (List<SelectListItem>)ViewBag.v, new { @class = "form-control" })
+                    </div>
+                    <div class="mb-3">
+                        <label>Kişi Sayısı</label>
+                        <input type="number" class="form-control" asp-for="PersonCount">
+                    </div>                    
+                    <div class="mb-3">
+                        <label>Tarih</label>
+                        <input type="date" class="form-control" asp-for="ReservationDate">
+                    </div>  
+                    <div class="mb-3">
+                        <label>Varsa Eklemek İstedikleriniz</label>
+                        <textarea asp-for="Description" class="form-control" rows="5"></textarea>
+                    </div>
+                    <div>
+                        <button class="btn bg-gradient-info">Kaydet</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

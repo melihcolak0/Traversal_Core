@@ -1,0 +1,42 @@
+﻿@model List<_71MY_TraversalCore.CQRS.Results.DestinationResults.GetAllDestinationQueryResult>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"><a href="/Admin/Dashboard/Index">Dashboard</a></span>/ CQRS ile Tur Rotaları</h4>
+    <div class="card">
+        <h5 class="card-header">Tur Rotaları</h5>
+        <div class="table-responsive text-nowrap">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>ŞEHİR</th>
+                        <th>GÜN/GECE</th>
+                        <th>FİYAT</th>
+                        <th>KAPASİTE</th>                        
+                        <th>SİL</th>
+                        <th>GÜNCELLE</th>
+                    </tr>
+                </thead>
+                <tbody class="table-border-bottom-0">
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.id</td>
+                            <td>@item.city</td>
+                            <td>@item.daynight</td>
+                            <td>$@item.price</td>
+                            <td>@item.capacity</td>
+                            <td><a href="/Admin/DestinationCQRS/DeleteDestination/@item.id" class="btn btn-outline-danger">Sil</a></td>
+                            <td><a href="/Admin/DestinationCQRS/GetDestinationById/@item.id" class="btn btn-outline-warning">Güncelle</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <br />
+            <a href="/Admin/DestinationCQRS/AddDestination" class="btn btn-primary">Yeni Rota Ekle</a>
+        </div>
+    </div>
+</div>

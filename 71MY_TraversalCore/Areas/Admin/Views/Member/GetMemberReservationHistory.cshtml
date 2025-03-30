@@ -1,0 +1,40 @@
+﻿@using EntityLayer.Concrete
+@model List<Reservation>
+@{
+    ViewData["Title"] = "GetMemberReservationHistory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"><a href="/Admin/Dashboard/Index">Dashboard</a></span>/ Geçmiş Turlar</h4>
+    <div class="card">
+        <h5 class="card-header">Kullanıcının Geçmiş Turları</h5>
+        <div class="table-responsive text-nowrap">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>ÜYE ADI VE SOYADI</th>
+                        <th>ROTA</th>
+                        <th>KİŞİ SAYISI</th>
+                        <th>TARİH</th>
+                        <th>DETAYLAR</th>
+                    </tr>
+                </thead>
+                <tbody class="table-border-bottom-0">
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.ReservationId</td>
+                            <td>@item.AppUser.Name @item.AppUser.Surname</td>
+                            <td>@item.Destination.City</td>
+                            <td>@item.PersonCount</td>
+                            <td>@item.ReservationDate.ToString("dd MMM yyyy - HH:mm")</td>
+                            <td><a href="#" class="btn btn-outline-primary">Detaylar</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <br />
+        </div>
+    </div>
+</div>

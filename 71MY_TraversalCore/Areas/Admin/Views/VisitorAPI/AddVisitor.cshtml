@@ -1,0 +1,43 @@
+﻿@model VisitorAPIViewModel
+@{
+    ViewData["Title"] = "AddVisitor";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"><a href="/Admin/VisitorAPI/Index">Ziyaretçiler</a></span>/ Yeni Ziyaretçi Ekleme Sayfası</h4>
+    <div class="col-md-12">
+        <div class="card mb-4">
+            <h5 class="card-header">Yeni Ziyaretçi Ekle</h5>
+            <div class="card-body">
+                <form method="post">
+                    <div>
+                        <label class="form-label">ADI</label>
+                        <input type="text" class="form-control" asp-for="Name" />
+                    </div>
+                    <br />
+                    <div>
+                        <label class="form-label">SOYADI</label>
+                        <input type="text" class="form-control" asp-for="Surname" />
+                    </div>
+                    <br />
+                    <div>
+                        <label class="form-label">ŞEHİR</label>
+                        <input type="text" class="form-control" asp-for="City" />
+                    </div>
+                    <br />
+                    <div>
+                        <label class="form-label">ÜLKE</label>
+                        <input type="text" class="form-control" asp-for="Country" />
+                    </div>
+                    <br />
+                    <div>
+                        <label class="form-label">MAIL</label>
+                        <input type="text" class="form-control" asp-for="Mail" />
+                    </div>
+                    <br />
+                    <button class="btn btn-primary">Kaydet</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+﻿@using EntityLayer.Concrete
+@model List<Guide>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"><a href="/Admin/Dashboard/Index">Dashboard</a></span>/ Rehberler</h4>
+    <div class="card">
+        <h5 class="card-header">Rehberler</h5>
+        <div class="table-responsive text-nowrap">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>GÖRSEL</th>
+                        <th>ADI VE SOYADI</th>
+                        <th>AÇIKLAMA </th>
+                        <th>DURUM</th>    
+                        <th>AKTİF/PASİF YAP</th>
+                        <th>GÜNCELLE</th>
+                    </tr>
+                </thead>
+                <tbody class="table-border-bottom-0">
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.GuideId</td>
+                            <td><img src="@item.Image" class="rounded-circle" width="50" height="50" /></td>
+                            <td>@item.Name</td>
+                            <td>@item.Description</td>                            
+                            @{
+                                if (item.Status)
+                                {
+                                    <td>Aktif</td>
+                                    <td><a href="/Admin/Guide/DeactivateGuide/@item.GuideId" class="btn btn-outline-danger">Pasif Yap</a></td>
+                                }
+                                else
+                                {
+                                    <td>Pasif</td>
+                                    <td><a href="/Admin/Guide/ActivateGuide/@item.GuideId" class="btn btn-outline-success">Aktif Yap</a></td>
+                                }
+
+                            }
+                            <td><a href="/Admin/Guide/DeleteGuide/@item.GuideId" class="btn btn-outline-danger">Sil</a></td>
+                            <td><a href="/Admin/Guide/UpdateGuide/@item.GuideId" class="btn btn-outline-warning">Güncelle</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <br />
+            <a href="/Admin/Guide/AddGuide" class="btn btn-primary">Yeni Rehber Ekle</a>
+        </div>
+    </div>
+</div>

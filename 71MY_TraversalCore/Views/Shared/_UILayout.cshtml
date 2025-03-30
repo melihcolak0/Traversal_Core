@@ -1,0 +1,12 @@
+﻿
+@{
+    Layout = null;
+}
+@await Html.PartialAsync("/Views/UILayoutPartial/_Header.cshtml")
+
+<body>   
+    @await Html.PartialAsync("/Views/UILayoutPartial/_Navbar.cshtml")
+    @RenderBody()
+    @await Html.PartialAsync("/Views/UILayoutPartial/_Footer.cshtml")    
+    @await Html.PartialAsync("/Views/UILayoutPartial/_Script.cshtml")
+</body>
