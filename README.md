@@ -173,10 +173,16 @@ Siteye Git bölümünde kullanıcı vitrin paneline gidebilir.
 Çıkış Yap bölümünde kullanıcı düz kullanıcı rolüne geri döner ve sitedeki bazı özellikleri kullanamaz hale gelir.
 
 ## :arrow_forward: Giriş Yapma Paneli
-Bu eğitimde son olarak üye panelini oluşturdum. Üyeler, bu panel üzerinde kendi hakkında bilgiler, rehberler ve aktif rotalar ve kendi rezervasyonları gibi bilgileri görebilir.
+<div align="center">
+  <img src="https://github.com/melihcolak0/Traversal_Core/blob/5be6bad1ad0107e00ee0598e486cdb3f32a9cf60/ss3/login.jpg" alt="image alt">
+</div>
 
 ## :arrow_forward: Kayıt Olma Paneli
-Bu eğitimde son olarak üye panelini oluşturdum. Üyeler, bu panel üzerinde kendi hakkında bilgiler, rehberler ve aktif rotalar ve kendi rezervasyonları gibi bilgileri görebilir.
+<div align="center">
+  <img src="https://github.com/melihcolak0/Traversal_Core/blob/5be6bad1ad0107e00ee0598e486cdb3f32a9cf60/ss3/register.jpg" alt="image alt">
+</div>
 
 ## :arrow_forward: Hata Sayfası
-Bu eğitimde son olarak üye panelini oluşturdum. Üyeler, bu panel üzerinde kendi hakkında bilgiler, rehberler ve aktif rotalar ve kendi rezervasyonları gibi bilgileri görebilir.
+<div align="center">
+  <img src="https://github.com/melihcolak0/Traversal_Core/blob/5be6bad1ad0107e00ee0598e486cdb3f32a9cf60/ss3/error.jpg" alt="image alt">
+</div>
