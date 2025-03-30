@@ -172,3 +172,11 @@ Siteye Git bölümünde kullanıcı vitrin paneline gidebilir.
 ### :triangular_flag_on_post: Çıkış Yap Bölümü
 Çıkış Yap bölümünde kullanıcı düz kullanıcı rolüne geri döner ve sitedeki bazı özellikleri kullanamaz hale gelir.
 
+## :arrow_forward: Giriş Yapma Paneli
+Bu eğitimde son olarak üye panelini oluşturdum. Üyeler, bu panel üzerinde kendi hakkında bilgiler, rehberler ve aktif rotalar ve kendi rezervasyonları gibi bilgileri görebilir.
+
+## :arrow_forward: Kayıt Olma Paneli
+Bu eğitimde son olarak üye panelini oluşturdum. Üyeler, bu panel üzerinde kendi hakkında bilgiler, rehberler ve aktif rotalar ve kendi rezervasyonları gibi bilgileri görebilir.
+
+## :arrow_forward: Hata Sayfası
+Bu eğitimde son olarak üye panelini oluşturdum. Üyeler, bu panel üzerinde kendi hakkında bilgiler, rehberler ve aktif rotalar ve kendi rezervasyonları gibi bilgileri görebilir.
